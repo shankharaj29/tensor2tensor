@@ -1,5 +1,5 @@
 @registry.register_problem
-class TranslateEndeWmt8k(translate.TranslateProblem):
+class abc(text_problems.Text2TextProblem):
   """Problem spec for WMT En-De translation."""
 
   @property
