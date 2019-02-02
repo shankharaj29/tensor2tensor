@@ -483,11 +483,11 @@ def write_records(records, out_filename):
   writer.close()
 
 
-def generate_dataset_and_shuffle(train_gen="http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/parallel.tgz",
-                                 train_paths={"parallel/IITB.en-hi.en","parallel/IITB.en-hi.hi"),
-                                 dev_gen="http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/dev_test_tokenized.tgz",
-                                 dev_paths=("dev_test_tokenized/test.en", "dev_test_tokenized/test.hi"),
-                                 shuffle=True):
+def generate_dataset_and_shuffle(train_gen,train_paths,dev_gen,dev_paths,shuffle=True):
+  train_gen="http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/parallel.tgz"
+   train_paths=["parallel/IITB.en-hi.en","parallel/IITB.en-hi.hi"]
+     dev_gen="http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/dev_test_tokenized.tgz"
+      dev_paths=["dev_test_tokenized/test.en", "dev_test_tokenized/test.hi"]                                         
   generate_files(train_gen, train_paths)
   generate_files(dev_gen, dev_paths)
   mlperf_log.transformer_print(key=mlperf_log.INPUT_ORDER)
