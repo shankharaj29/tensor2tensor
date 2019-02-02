@@ -28,23 +28,19 @@ from tensor2tensor.utils import registry
 
 _ENDE_TRAIN_DATASETS = [
     [
-        "http://data.statmt.org/wmt18/translation-task/training-parallel-nc-v13.tgz",  # pylint: disable=line-too-long
-        ("training-parallel-nc-v13/news-commentary-v13.de-en.en",
-         "training-parallel-nc-v13/news-commentary-v13.de-en.de")
+        "http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/parallel.tgz",  # pylint: disable=line-too-long
+        ("parallel/IITB.en-hi.en",
+          "parallel/IITB.en-hi.hi")
     ],
     [
-        "http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz",
-        ("commoncrawl.de-en.en", "commoncrawl.de-en.de")
-    ],
-    [
-        "http://www.statmt.org/wmt13/training-parallel-europarl-v7.tgz",
-        ("training/europarl-v7.de-en.en", "training/europarl-v7.de-en.de")
+        "http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/dev_test_tokenized.tgz",
+        ("dev_test_tokenized/dev.en", "dev_test_tokenized/dev.hi")
     ],
 ]
 _ENDE_EVAL_DATASETS = [
     [
-        "http://data.statmt.org/wmt17/translation-task/dev.tgz",
-        ("dev/newstest2013.en", "dev/newstest2013.de")
+        "http://www.cfilt.iitb.ac.in/iitb_parallel/iitb_corpus_download/dev_test_tokenized.tgz",
+        ("dev_test_tokenized/test.en", "dev_test_tokenized/test.hi")
     ],
 ]
 
@@ -64,7 +60,7 @@ class TranslateEndeWmt8k(translate.TranslateProblem):
 
   def source_data_files(self, dataset_split):
     train = dataset_split == problem.DatasetSplit.TRAIN
-    train_datasets = _ENDE_TRAIN_DATASETS + self.additional_training_datasets
+    train_datasets = _ENDE_TRAIN_DATASETS
     return train_datasets if train else _ENDE_EVAL_DATASETS
 
 
